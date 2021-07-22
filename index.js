@@ -41,9 +41,25 @@ class Airplane {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- class Person {
-    
-  }
+          class Person {
+            constructor(name, age){
+              this.name = name;
+              this.age = age;
+              this.stomach = [];
+            }
+            eat(food){
+              if(this.stomach.length < 10){
+                return this.stomach.push(food);
+              }
+            }
+            poop(){
+              return this.stomach = [];
+            }
+            toString(){
+              return `${this.name}, ${this.age}`;
+            }
+          
+          }
   
   /*
     TASK 2
@@ -60,8 +76,29 @@ class Airplane {
   */
   
  class Car {
-    
+   constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
   }
+  fill(gallons) {
+    this.tank += gallons;
+  }
+  drive(distance) {
+    const max = 200;
+    if (distance < max) {
+      this.odometer += distance;
+      this.tank -= distance / this.milesPerGallon;
+    } else {
+      this.odometer += max;
+      this.tank -= max / this.milesPerGallon;
+    }
+    return `I ran out of fuel at ${this.odometer} miles!`;
+  }
+}
+    
+  
   
   /*
     TASK 3
